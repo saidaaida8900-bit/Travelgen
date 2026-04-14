@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/777/Downloads/index_6.html -->
-<html lang="kk" style="--tg-viewport-height: 100vh; --tg-viewport-stable-height: 100vh;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="kk" style="--tg-viewport-height: 100vh; --tg-viewport-stable-height: 100vh;">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Sapar — Сапар жоспарлаушы</title>
-  <script src="./index_files/telegram-web-app.js.Без названия"></script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="./index_files/css2" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #8E2DE2;
@@ -53,7 +53,7 @@
     }
 
     /* ─── SCROLL CONTAINERS ─── */
-    .tab-content {
+   .tab-content {
       display: none;
       flex: 1;
       overflow-y: auto;
@@ -62,18 +62,18 @@
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
     }
-    .tab-content.active { display: block; }
+   .tab-content.active { display: block; }
 
     /* ─── HEADER ─── */
-    .page-header {
+   .page-header {
       padding: 20px 20px 0;
       position: relative;
       z-index: 1;
     }
-    .greeting-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-    .greeting-sub { font-size: 12px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.4px; text-transform: uppercase; }
-    .greeting-name { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1.1; }
-    .avatar-wrap {
+   .greeting-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+   .greeting-sub { font-size: 12px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.4px; text-transform: uppercase; }
+   .greeting-name { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1.1; }
+   .avatar-wrap {
       width: 44px; height: 44px; border-radius: 50%;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       display: flex; align-items: center; justify-content: center;
@@ -83,8 +83,8 @@
     }
 
     /* ─── SEARCH BAR ─── */
-    .search-wrap { padding: 16px 20px 0; }
-    .search-inner {
+   .search-wrap { padding: 16px 20px 0; }
+   .search-inner {
       position: relative;
       background: var(--surface);
       border-radius: var(--radius-md);
@@ -93,29 +93,29 @@
       overflow: hidden;
       transition: border-color 300ms, box-shadow 300ms;
     }
-    .search-inner:focus-within {
+   .search-inner:focus-within {
       border-color: rgba(142,45,226,0.4);
       box-shadow: 0 0 0 4px rgba(142,45,226,0.08), var(--shadow-sm);
     }
-    .search-icon {
+   .search-icon {
       position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
       color: var(--text-muted); font-size: 16px; pointer-events: none;
     }
-    .search-input {
+   .search-input {
       width: 100%; padding: 14px 14px 14px 42px;
       background: transparent; border: none; outline: none;
       font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 500;
       color: var(--text);
     }
-    .search-input::placeholder { color: var(--text-light); }
+   .search-input::placeholder { color: var(--text-light); }
 
     /* ─── SECTION TITLES ─── */
-    .section-title {
+   .section-title {
       font-size: 18px; font-weight: 800; color: var(--text);
       padding: 20px 20px 12px;
       display: flex; align-items: center; gap: 8px;
     }
-    .section-title-badge {
+   .section-title-badge {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #fff; font-size: 10px; font-weight: 700;
       padding: 3px 8px; border-radius: 20px; letter-spacing: 0.5px;
@@ -123,13 +123,13 @@
     }
 
     /* ─── TRENDING CHIPS ─── */
-    .chips-row {
+   .chips-row {
       display: flex; gap: 8px;
       padding: 0 20px 4px; overflow-x: auto;
       scrollbar-width: none; -ms-overflow-style: none;
     }
-    .chips-row::-webkit-scrollbar { display: none; }
-    .chip {
+   .chips-row::-webkit-scrollbar { display: none; }
+   .chip {
       flex-shrink: 0;
       background: var(--secondary); color: var(--primary);
       font-size: 13px; font-weight: 600;
@@ -138,16 +138,16 @@
       border: 1.5px solid rgba(142,45,226,0.15);
       white-space: nowrap;
     }
-    .chip.active, .chip:active {
+   .chip.active,.chip:active {
       background: var(--primary); color: #fff;
       transform: scale(0.96);
       border-color: var(--primary);
     }
 
     /* ─── TOUR CARDS ─── */
-    .cards-grid { padding: 4px 20px; display: flex; flex-direction: column; gap: 16px; }
+   .cards-grid { padding: 4px 20px; display: flex; flex-direction: column; gap: 16px; }
 
-    .tour-card {
+   .tour-card {
       background: var(--card-bg);
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -158,18 +158,18 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
-    .tour-card:active { transform: scale(0.97); box-shadow: var(--shadow-sm); }
+   .tour-card:active { transform: scale(0.97); box-shadow: var(--shadow-sm); }
 
-    .card-img-wrap {
+   .card-img-wrap {
       position: relative; height: 200px; overflow: hidden;
     }
-    .card-img {
+   .card-img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 400ms ease;
     }
-    .tour-card:active .card-img { transform: scale(1.03); }
+   .tour-card:active.card-img { transform: scale(1.03); }
 
-    .card-badge {
+   .card-badge {
       position: absolute; top: 12px; left: 12px;
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -178,7 +178,7 @@
       font-size: 11px; font-weight: 700; color: var(--primary);
       letter-spacing: 0.3px;
     }
-    .card-rating-badge {
+   .card-rating-badge {
       position: absolute; top: 12px; right: 12px;
       background: rgba(255,255,255,0.9);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -188,14 +188,14 @@
       display: flex; align-items: center; gap: 4px;
     }
 
-    .card-body { padding: 14px 16px 16px; }
-    .card-destination { font-size: 11px; font-weight: 600; color: var(--primary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
-    .card-title { font-size: 19px; font-weight: 800; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
-    .card-desc { font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; }
-    .card-price { font-size: 18px; font-weight: 800; color: var(--primary); line-height: 1; }
-    .card-price-label { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
-    .card-cta {
+   .card-body { padding: 14px 16px 16px; }
+   .card-destination { font-size: 11px; font-weight: 600; color: var(--primary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
+   .card-title { font-size: 19px; font-weight: 800; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
+   .card-desc { font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
+   .card-footer { display: flex; align-items: center; justify-content: space-between; }
+   .card-price { font-size: 18px; font-weight: 800; color: var(--primary); line-height: 1; }
+   .card-price-label { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+   .card-cta {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #fff; font-size: 13px; font-weight: 700;
       padding: 10px 18px; border-radius: 50px;
@@ -204,19 +204,19 @@
       box-shadow: 0 4px 16px rgba(142,45,226,0.35);
       font-family: 'Figtree', sans-serif;
     }
-    .card-cta:active { transform: scale(0.94); box-shadow: none; }
+   .card-cta:active { transform: scale(0.94); box-shadow: none; }
 
     /* ─── MODAL ─── */
-    .modal-overlay {
+   .modal-overlay {
       position: fixed; inset: 0; z-index: 100;
       background: rgba(30,10,60,0.5);
       backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
       opacity: 0; pointer-events: none;
       transition: opacity 350ms ease;
     }
-    .modal-overlay.open { opacity: 1; pointer-events: all; }
+   .modal-overlay.open { opacity: 1; pointer-events: all; }
 
-    .modal-sheet {
+   .modal-sheet {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 101;
       background: var(--bg);
       border-radius: var(--radius-xl) var(--radius-xl) 0 0;
@@ -226,69 +226,69 @@
       transition: transform 400ms cubic-bezier(.34,1.1,.64,1);
       -webkit-overflow-scrolling: touch;
     }
-    .modal-sheet.open { transform: translateY(0); }
+   .modal-sheet.open { transform: translateY(0); }
 
-    .modal-drag { width: 40px; height: 4px; background: rgba(142,45,226,0.2); border-radius: 4px; margin: 12px auto 0; }
+   .modal-drag { width: 40px; height: 4px; background: rgba(142,45,226,0.2); border-radius: 4px; margin: 12px auto 0; }
 
-    .modal-img-wrap { height: 260px; overflow: hidden; position: relative; }
-    .modal-img { width: 100%; height: 100%; object-fit: cover; }
-    .modal-img-overlay {
+   .modal-img-wrap { height: 260px; overflow: hidden; position: relative; }
+   .modal-img { width: 100%; height: 100%; object-fit: cover; }
+   .modal-img-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(30,10,60,0.7) 0%, transparent 60%);
     }
-    .modal-img-title {
+   .modal-img-title {
       position: absolute; bottom: 16px; left: 20px; right: 20px;
       color: #fff; font-size: 26px; font-weight: 900; line-height: 1.1;
       text-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
-    .modal-img-sub { font-size: 14px; font-weight: 500; opacity: 0.85; margin-top: 4px; }
+   .modal-img-sub { font-size: 14px; font-weight: 500; opacity: 0.85; margin-top: 4px; }
 
-    .modal-body { padding: 20px 20px 0; }
-    .modal-hotel-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .modal-hotel-icon { font-size: 20px; }
-    .modal-hotel-name { font-size: 16px; font-weight: 700; color: var(--text); }
-    .modal-hotel-stars { color: #F59E0B; font-size: 13px; }
+   .modal-body { padding: 20px 20px 0; }
+   .modal-hotel-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+   .modal-hotel-icon { font-size: 20px; }
+   .modal-hotel-name { font-size: 16px; font-weight: 700; color: var(--text); }
+   .modal-hotel-stars { color: #F59E0B; font-size: 13px; }
 
-    .info-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .info-chip {
+   .info-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+   .info-chip {
       background: var(--secondary); color: var(--primary);
       font-size: 12px; font-weight: 600; padding: 7px 14px;
       border-radius: 50px; border: 1px solid rgba(142,45,226,0.15);
     }
 
-    .modal-section-label { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 12px; }
+   .modal-section-label { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 12px; }
 
-    .review-card {
+   .review-card {
       background: var(--surface);
       border-radius: var(--radius-md); padding: 14px;
       border: 1px solid rgba(142,45,226,0.1);
       box-shadow: var(--shadow-sm);
       margin-bottom: 10px;
     }
-    .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-    .review-avatar {
+   .review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+   .review-avatar {
       width: 36px; height: 36px; border-radius: 50%;
       background: linear-gradient(135deg, var(--primary-light), #EC4899);
       display: flex; align-items: center; justify-content: center;
       color: #fff; font-size: 14px; font-weight: 700; flex-shrink: 0;
     }
-    .review-name { font-size: 14px; font-weight: 700; color: var(--text); }
-    .review-source { font-size: 11px; color: var(--text-muted); font-weight: 500; }
-    .review-stars { font-size: 13px; margin-left: auto; }
-    .review-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 400; }
+   .review-name { font-size: 14px; font-weight: 700; color: var(--text); }
+   .review-source { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+   .review-stars { font-size: 13px; margin-left: auto; }
+   .review-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 400; }
 
-    .modal-price-block {
+   .modal-price-block {
       margin: 20px 0 0;
       background: linear-gradient(135deg, rgba(142,45,226,0.08), rgba(168,85,247,0.05));
       border-radius: var(--radius-md); padding: 16px;
       border: 1px solid rgba(142,45,226,0.15);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .modal-price-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
-    .modal-price-value { font-size: 22px; font-weight: 900; color: var(--primary); }
+   .modal-price-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+   .modal-price-value { font-size: 22px; font-weight: 900; color: var(--primary); }
 
-    .book-btn-wrap { padding: 16px 20px calc(var(--safe-bottom) + 20px); }
-    .book-btn {
+   .book-btn-wrap { padding: 16px 20px calc(var(--safe-bottom) + 20px); }
+   .book-btn {
       width: 100%;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #fff; border: none; border-radius: var(--radius-md);
@@ -299,10 +299,10 @@
       box-shadow: 0 8px 28px rgba(142,45,226,0.4);
       letter-spacing: 0.3px;
     }
-    .book-btn:active { transform: scale(0.96); box-shadow: 0 4px 12px rgba(142,45,226,0.3); }
+   .book-btn:active { transform: scale(0.96); box-shadow: 0 4px 12px rgba(142,45,226,0.3); }
 
     /* ─── BOTTOM NAV ─── */
-    .bottom-nav {
+   .bottom-nav {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
       height: calc(var(--nav-h) + var(--safe-bottom));
       background: var(--glass-bg);
@@ -312,36 +312,36 @@
       padding-top: 8px;
       box-shadow: 0 -4px 24px rgba(142,45,226,0.08);
     }
-    .nav-btn {
+   .nav-btn {
       flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;
       cursor: pointer; transition: transform 300ms;
       padding: 4px 0; background: none; border: none;
       font-family: 'Figtree', sans-serif;
     }
-    .nav-btn:active { transform: scale(0.92); }
-    .nav-icon {
+   .nav-btn:active { transform: scale(0.92); }
+   .nav-icon {
       width: 44px; height: 30px;
       display: flex; align-items: center; justify-content: center;
       font-size: 20px; border-radius: 12px;
       transition: all 300ms;
     }
-    .nav-btn.active .nav-icon {
+   .nav-btn.active.nav-icon {
       background: var(--secondary);
       box-shadow: 0 2px 12px rgba(142,45,226,0.18);
     }
-    .nav-label { font-size: 10px; font-weight: 600; color: var(--text-muted); transition: color 300ms; letter-spacing: 0.2px; }
-    .nav-btn.active .nav-label { color: var(--primary); }
+   .nav-label { font-size: 10px; font-weight: 600; color: var(--text-muted); transition: color 300ms; letter-spacing: 0.2px; }
+   .nav-btn.active.nav-label { color: var(--primary); }
 
     /* ─── BOOKINGS TAB ─── */
-    .empty-state {
+   .empty-state {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 60px 32px; text-align: center; min-height: 50vh;
     }
-    .empty-icon { font-size: 64px; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(142,45,226,0.2)); }
-    .empty-title { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
-    .empty-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-weight: 400; max-width: 260px; }
+   .empty-icon { font-size: 64px; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(142,45,226,0.2)); }
+   .empty-title { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+   .empty-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-weight: 400; max-width: 260px; }
 
-    .booking-item {
+   .booking-item {
       margin: 0 20px 12px;
       background: var(--surface);
       border-radius: var(--radius-md);
@@ -350,56 +350,56 @@
       box-shadow: var(--shadow-sm);
       display: flex; align-items: center; gap: 14px;
     }
-    .booking-thumb { width: 60px; height: 60px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
-    .booking-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .booking-info { flex: 1; }
-    .booking-title { font-size: 15px; font-weight: 700; color: var(--text); }
-    .booking-sub { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
-    .booking-status {
+   .booking-thumb { width: 60px; height: 60px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
+   .booking-thumb img { width: 100%; height: 100%; object-fit: cover; }
+   .booking-info { flex: 1; }
+   .booking-title { font-size: 15px; font-weight: 700; color: var(--text); }
+   .booking-sub { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+   .booking-status {
       font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 50px;
       background: rgba(34,197,94,0.12); color: #16A34A;
     }
 
     /* ─── AI TAB ─── */
-    .ai-hero {
+   .ai-hero {
       margin: 20px;
       background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 50%, #A855F7 100%);
       border-radius: var(--radius-xl); padding: 32px 24px;
       position: relative; overflow: hidden;
     }
-    .ai-hero::before {
+   .ai-hero::before {
       content: ''; position: absolute; top: -30px; right: -30px;
       width: 140px; height: 140px; border-radius: 50%;
       background: rgba(255,255,255,0.08);
     }
-    .ai-hero::after {
+   .ai-hero::after {
       content: ''; position: absolute; bottom: -20px; left: -20px;
       width: 100px; height: 100px; border-radius: 50%;
       background: rgba(255,255,255,0.05);
     }
-    .ai-hero-icon { font-size: 48px; margin-bottom: 12px; }
-    .ai-hero-title { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 8px; }
-    .ai-hero-desc { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6; font-weight: 400; }
+   .ai-hero-icon { font-size: 48px; margin-bottom: 12px; }
+   .ai-hero-title { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+   .ai-hero-desc { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6; font-weight: 400; }
 
-    .ai-features { padding: 8px 20px; display: flex; flex-direction: column; gap: 12px; }
-    .ai-feature {
+   .ai-features { padding: 8px 20px; display: flex; flex-direction: column; gap: 12px; }
+   .ai-feature {
       background: var(--surface); border-radius: var(--radius-md); padding: 16px;
       display: flex; align-items: center; gap: 14px;
       border: 1px solid rgba(142,45,226,0.1); box-shadow: var(--shadow-sm);
       cursor: pointer; transition: all 300ms;
     }
-    .ai-feature:active { transform: scale(0.97); }
-    .ai-feature-icon {
+   .ai-feature:active { transform: scale(0.97); }
+   .ai-feature-icon {
       width: 44px; height: 44px; border-radius: var(--radius-sm); flex-shrink: 0;
       background: var(--secondary); display: flex; align-items: center; justify-content: center;
       font-size: 20px;
     }
-    .ai-feature-title { font-size: 15px; font-weight: 700; color: var(--text); }
-    .ai-feature-desc { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
-    .ai-feature-arrow { margin-left: auto; color: var(--text-muted); font-size: 16px; }
+   .ai-feature-title { font-size: 15px; font-weight: 700; color: var(--text); }
+   .ai-feature-desc { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+   .ai-feature-arrow { margin-left: auto; color: var(--text-muted); font-size: 16px; }
 
-    .ai-cta-wrap { padding: 16px 20px; }
-    .ai-cta {
+   .ai-cta-wrap { padding: 16px 20px; }
+   .ai-cta {
       width: 100%;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #fff; border: none; border-radius: var(--radius-md);
@@ -408,52 +408,52 @@
       cursor: pointer; transition: all 300ms;
       box-shadow: 0 6px 20px rgba(142,45,226,0.35);
     }
-    .ai-cta:active { transform: scale(0.97); box-shadow: none; }
+   .ai-cta:active { transform: scale(0.97); box-shadow: none; }
 
     /* ─── PROFILE TAB ─── */
-    .profile-hero {
+   .profile-hero {
       margin: 20px; padding: 28px 20px;
       background: linear-gradient(135deg, rgba(142,45,226,0.08), rgba(168,85,247,0.05));
       border-radius: var(--radius-xl); text-align: center;
       border: 1px solid rgba(142,45,226,0.12);
     }
-    .profile-avatar-lg {
+   .profile-avatar-lg {
       width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 12px;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       display: flex; align-items: center; justify-content: center;
       font-size: 32px; font-weight: 700; color: #fff;
       box-shadow: 0 8px 28px rgba(142,45,226,0.35);
     }
-    .profile-greeting { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
-    .profile-username { font-size: 14px; color: var(--text-muted); font-weight: 500; }
-    .profile-stats { display: flex; gap: 12px; margin-top: 20px; }
-    .profile-stat {
+   .profile-greeting { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
+   .profile-username { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+   .profile-stats { display: flex; gap: 12px; margin-top: 20px; }
+   .profile-stat {
       flex: 1; background: var(--surface); border-radius: var(--radius-sm);
       padding: 12px 8px; text-align: center;
       border: 1px solid rgba(142,45,226,0.1);
     }
-    .profile-stat-val { font-size: 20px; font-weight: 900; color: var(--primary); }
-    .profile-stat-key { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+   .profile-stat-val { font-size: 20px; font-weight: 900; color: var(--primary); }
+   .profile-stat-key { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
 
-    .profile-menu { margin: 0 20px; }
-    .profile-menu-item {
+   .profile-menu { margin: 0 20px; }
+   .profile-menu-item {
       display: flex; align-items: center; gap: 14px;
       padding: 16px 0; border-bottom: 1px solid rgba(142,45,226,0.08);
       cursor: pointer; transition: all 300ms;
     }
-    .profile-menu-item:last-child { border-bottom: none; }
-    .profile-menu-item:active { opacity: 0.6; }
-    .profile-menu-icon {
+   .profile-menu-item:last-child { border-bottom: none; }
+   .profile-menu-item:active { opacity: 0.6; }
+   .profile-menu-icon {
       width: 40px; height: 40px; border-radius: var(--radius-sm);
       background: var(--secondary); display: flex; align-items: center; justify-content: center;
       font-size: 18px; flex-shrink: 0;
     }
-    .profile-menu-label { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; }
-    .profile-menu-arrow { color: var(--text-muted); font-size: 14px; }
+   .profile-menu-label { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; }
+   .profile-menu-arrow { color: var(--text-muted); font-size: 14px; }
 
     /* ─── MISC ─── */
-    .hidden-card { display: none !important; }
-    .no-results {
+   .hidden-card { display: none!important; }
+   .no-results {
       text-align: center; padding: 40px 20px;
       font-size: 15px; color: var(--text-muted); font-weight: 500;
     }
@@ -466,15 +466,14 @@
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-    .cards-grid .tour-card:nth-child(1) { animation: slideUp 400ms ease forwards; }
-    .cards-grid .tour-card:nth-child(2) { animation: slideUp 400ms 80ms ease both; }
-    .cards-grid .tour-card:nth-child(3) { animation: slideUp 400ms 160ms ease both; }
+   .cards-grid.tour-card:nth-child(1) { animation: slideUp 400ms ease forwards; }
+   .cards-grid.tour-card:nth-child(2) { animation: slideUp 400ms 80ms ease both; }
+   .cards-grid.tour-card:nth-child(3) { animation: slideUp 400ms 160ms ease both; }
   </style>
 </head>
 <body>
 <div id="app">
 
-  <!-- ═══════ EXPLORE TAB ═══════ -->
   <div class="tab-content active" id="tab-explore">
     <div class="page-header">
       <div class="greeting-row">
@@ -505,62 +504,11 @@
       <div class="chip" data-filter="қазақстан">Қазақстан</div>
     </div>
 
-    <div class="cards-grid" id="cards-grid"><div class="tour-card" data-id="1">
-      <div class="card-img-wrap">
-        <img class="card-img" src="./index_files/photo-1571896349842-33c89424de2d" alt="Түркия (Анталья)" loading="lazy" onerror="this.onerror=null;this.src=&#39;https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&amp;q=85&#39;">
-        <div class="card-badge">🇹🇷 Түркия</div>
-        <div class="card-rating-badge">⭐ 4.7</div>
+    <div class="cards-grid" id="cards-grid">
       </div>
-      <div class="card-body">
-        <div class="card-destination">Elite Luxury Suite &amp; Spa Hotel</div>
-        <div class="card-title">Түркия (Анталья)</div>
-        <div class="card-desc">6 күн · All Inclusive</div>
-        <div class="card-footer">
-          <div>
-            <div class="card-price">400 293 ₸</div>
-            <div class="card-price-label">адамға</div>
-          </div>
-          <button class="card-cta" onclick="event.stopPropagation();openModal(1)">Толығырақ →</button>
-        </div>
-      </div></div><div class="tour-card" data-id="2">
-      <div class="card-img-wrap">
-        <img class="card-img" src="./index_files/photo-1582719508461-905c673771fd" alt="БАӘ (Дубай)" loading="lazy" onerror="this.onerror=null;this.src=&#39;https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&amp;q=85&#39;">
-        <div class="card-badge">🇦🇪 Дубай</div>
-        <div class="card-rating-badge">⭐ 4.8</div>
-      </div>
-      <div class="card-body">
-        <div class="card-destination">Jumeirah Creekside Hotel</div>
-        <div class="card-title">БАӘ (Дубай)</div>
-        <div class="card-desc">5 күн · Қалалық тур және сафари</div>
-        <div class="card-footer">
-          <div>
-            <div class="card-price">456 469 ₸</div>
-            <div class="card-price-label">адамға</div>
-          </div>
-          <button class="card-cta" onclick="event.stopPropagation();openModal(2)">Толығырақ →</button>
-        </div>
-      </div></div><div class="tour-card" data-id="3">
-      <div class="card-img-wrap">
-        <img class="card-img" src="./index_files/photo-1625244695498-b7f4226b5cbb" alt="Қазақстан (Көлсай)" loading="lazy" onerror="this.onerror=null;this.src=&#39;https://images.unsplash.com/photo-1625244695498-b7f4226b5cbb?w=900&amp;q=85&#39;">
-        <div class="card-badge">🇰🇿 Қазақстан</div>
-        <div class="card-rating-badge">⭐ 5.0</div>
-      </div>
-      <div class="card-body">
-        <div class="card-destination">CozyRest Guest House</div>
-        <div class="card-title">Қазақстан (Көлсай)</div>
-        <div class="card-desc">2 күн · Табиғат аясында демалыс</div>
-        <div class="card-footer">
-          <div>
-            <div class="card-price">60 000 ₸</div>
-            <div class="card-price-label">адамға</div>
-          </div>
-          <button class="card-cta" onclick="event.stopPropagation();openModal(3)">Толығырақ →</button>
-        </div>
-      </div></div></div>
     <div class="no-results" id="no-results" style="display:none;">Нәтиже табылмады 😔</div>
   </div>
 
-  <!-- ═══════ BOOKINGS TAB ═══════ -->
   <div class="tab-content" id="tab-bookings">
     <div class="page-header">
       <div class="greeting-row">
@@ -578,7 +526,6 @@
     </div>
   </div>
 
-  <!-- ═══════ AI TAB ═══════ -->
   <div class="tab-content" id="tab-ai">
     <div class="page-header">
       <div class="greeting-row">
@@ -637,7 +584,6 @@
     </div>
   </div>
 
-  <!-- ═══════ PROFILE TAB ═══════ -->
   <div class="tab-content" id="tab-profile">
     <div class="page-header">
       <div class="greeting-row">
@@ -699,32 +645,30 @@
     </div>
   </div>
 
-  <!-- ═══════ BOTTOM NAV ═══════ -->
   <nav class="bottom-nav">
-    <button class="nav-btn active" data-tab="explore" onclick="switchTab(&#39;explore&#39;, this)">
+    <button class="nav-btn active" data-tab="explore" onclick="switchTab('explore', this)">
       <div class="nav-icon">🏠</div>
       <div class="nav-label">Басты бет</div>
     </button>
-    <button class="nav-btn" data-tab="bookings" onclick="switchTab(&#39;bookings&#39;, this)">
+    <button class="nav-btn" data-tab="bookings" onclick="switchTab('bookings', this)">
       <div class="nav-icon">📅</div>
       <div class="nav-label">Брондарым</div>
     </button>
-    <button class="nav-btn" data-tab="ai" onclick="switchTab(&#39;ai&#39;, this)">
+    <button class="nav-btn" data-tab="ai" onclick="switchTab('ai', this)">
       <div class="nav-icon">🤖</div>
       <div class="nav-label">AI-Гид</div>
     </button>
-    <button class="nav-btn" data-tab="profile" onclick="switchTab(&#39;profile&#39;, this)">
+    <button class="nav-btn" data-tab="profile" onclick="switchTab('profile', this)">
       <div class="nav-icon">👤</div>
       <div class="nav-label">Профиль</div>
     </button>
   </nav>
 
-  <!-- ═══════ MODAL ═══════ -->
   <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
   <div class="modal-sheet" id="modal-sheet">
     <div class="modal-drag"></div>
     <div class="modal-img-wrap">
-      <img class="modal-img" id="modal-img" src="file:///C:/Users/777/Downloads/index_6.html" alt="">
+      <img class="modal-img" id="modal-img" src="" alt="">
       <div class="modal-img-overlay"></div>
       <div class="modal-img-title">
         <div id="modal-title">–</div>
@@ -776,9 +720,13 @@ function hapticNotify(type = 'success') {
 
 // ─── USER DATA ───
 const user = tg?.initDataUnsafe?.user;
-const firstName = user?.first_name || 'Саяхатшы';
-const lastName  = user?.last_name  || '';
-const username  = user?.username   ? '@' + user.username : 'Telegram';
+const firstName = user?.first_name |
+
+| 'Саяхатшы';
+const lastName  = user?.last_name |
+
+| '';
+const username  = user?.username  ? '@' + user.username : 'Telegram';
 const initials  = firstName.charAt(0).toUpperCase();
 
 document.getElementById('explore-name').textContent = firstName;
@@ -788,24 +736,9 @@ document.getElementById('profile-username').textContent = username;
 document.getElementById('profile-avatar').textContent = initials;
 
 // ─── TOUR DATA ───
-const TOURS = [
-  {
-    id: 1,
-    country: 'Түркия',
-    filter: 'туркия',
-    title: 'Түркия (Анталья)',
-    desc: '6 күн · All Inclusive',
-    price: '400 293 ₸-ден бастап',
-    priceRaw: '400 293 ₸',
-    hotel: 'Elite Luxury Suite & Spa Hotel',
-    hotelStars: '⭐⭐⭐⭐⭐',
-    rating: '4.7',
-    emoji: '🇹🇷',
-    img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e0/2e/8a/elite-luxury-suite.jpg?w=900&h=500&s=1',
-    imgFallback: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=85',
-    chips: ['✈️ Ұшу кіреді', '🍽️ All Inclusive', '6 күн', '🏖️ Жағажай'],
+const TOURS =,
     reviews: [
-      { name: 'Айгерім Б.', avatar: 'А', stars: '⭐⭐⭐⭐⭐', rating: '4.7/5', text: 'Қонақ үй үлкен, әдемі. Барлық жерде өте таза, бәрі ұсақ-түйекке дейін ойластырылған. Территорияда көп жасыл желек, бәрі күтілген. Қонақ үйдің артындағы саябақ керемет. Кешке Қонақлыға көрініс ашылады.' },
+      { name: 'Айгерім Б.', avatar: 'А', stars: '⭐⭐⭐⭐⭐', rating: '4.7/5', text: 'Қонақ үй үлкен, әдемі. Барлық жерде өте таза, бәрі ұсақ-түйекке дейін ойластырылған. Территорияда көп жасыл желек, бәрі күтілген.' },
       { name: 'Нурлан А.', avatar: 'Н', stars: '⭐⭐⭐⭐⭐', rating: '4.6/5', text: 'Тамаша орналасқан, бассейн аймағы кең және таза. Қызмет деңгейі жоғары. Тағам сапалы және алуан түрлі. Қайта барамын!' }
     ]
   },
@@ -821,11 +754,11 @@ const TOURS = [
     hotelStars: '⭐⭐⭐⭐⭐',
     rating: '4.8',
     emoji: '🇦🇪',
-    img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/23/af/c5/jumeirah-creekside-hotel.jpg?w=900&h=500&s=1',
+    img: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=85',
     imgFallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=85',
     chips: ['✈️ Ұшу кіреді', '🌆 Сити-тур', '🐪 Сафари', '5 күн'],
     reviews: [
-      { name: 'Дина М.', avatar: 'Д', stars: '⭐⭐⭐⭐⭐', rating: '4.8/5', text: 'Бөлме өте жақсы және таза, тамаша көрінісі бар еді. Қонақүйдің атмосферасы мен қызметкерлері жалпы алғанда керемет болды, ал тамақ өте дәмді әрі ерекше болды. Қызметі үшін Ясемин ханымға ерекше рахмет.' },
+      { name: 'Дина М.', avatar: 'Д', stars: '⭐⭐⭐⭐⭐', rating: '4.8/5', text: 'Бөлме өте жақсы және таза, тамаша көрінісі бар еді. Қонақүйдің атмосферасы мен қызметкерлері жалпы алғанда керемет болды.' },
       { name: 'Серік Т.', avatar: 'С', stars: '⭐⭐⭐⭐⭐', rating: '4.9/5', text: 'Бурдж Халифаға кешкі экскурсия ұмытылмас болды. Сафари да тамаша ұйымдастырылған. Жалпы алғанда өте жоғары деңгей!' }
     ]
   },
@@ -841,11 +774,11 @@ const TOURS = [
     hotelStars: '⭐⭐⭐⭐⭐',
     rating: '5.0',
     emoji: '🇰🇿',
-    img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fb/5d/kolsai-lakes.jpg?w=900&h=500&s=1',
+    img: 'https://images.unsplash.com/photo-1625244695498-b7f4226b5cbb?w=900&q=85',
     imgFallback: 'https://images.unsplash.com/photo-1625244695498-b7f4226b5cbb?w=900&q=85',
     chips: ['🏔️ Таулы', '🌲 Табиғат', '2 күн', '🐎 Ат сайысы'],
     reviews: [
-      { name: 'Зарина К.', avatar: 'З', stars: '⭐⭐⭐⭐⭐', rating: '5.0/5', text: 'Өте жайлы демалыс болды, таңғы және кешкі астары өте тамаша еді. Олар бізге сапарларды ұйымдастыруға көмектесті және соңғы күні бізді алуға келген таксидің дөңгелегі жарылып кеткенде, бізді ұзағырақ қалуға рұқсат берді.' },
+      { name: 'Зарина К.', avatar: 'З', stars: '⭐⭐⭐⭐⭐', rating: '5.0/5', text: 'Өте жайлы демалыс болды, таңғы және кешкі астары өте тамаша еді. Олар бізге сапарларды ұйымдастыруға көмектесті.' },
       { name: 'Асель Р.', avatar: 'А', stars: '⭐⭐⭐⭐⭐', rating: '5.0/5', text: 'Табиғат тамаша! Көл суы мөлдір, ауасы таза. Ұй иесі өте жылы қарсы алды. Балалармен демалуға өте қолайлы.' }
     ]
   }
@@ -853,7 +786,7 @@ const TOURS = [
 
 let currentTour = null;
 let activeChip = 'all';
-let bookings = [];
+let bookings =;
 
 // ─── RENDER CARDS ───
 function renderCards(filter = 'all', query = '') {
@@ -863,8 +796,13 @@ function renderCards(filter = 'all', query = '') {
 
   const q = query.toLowerCase().trim();
   const filtered = TOURS.filter(t => {
-    const matchFilter = filter === 'all' || t.filter === filter;
-    const matchQuery  = !q || t.title.toLowerCase().includes(q) || t.country.toLowerCase().includes(q);
+    const matchFilter = filter === 'all' |
+
+| t.filter === filter;
+    const matchQuery  =!q |
+
+| t.title.toLowerCase().includes(q) |
+| t.country.toLowerCase().includes(q);
     return matchFilter && matchQuery;
   });
 
@@ -887,7 +825,7 @@ function renderCards(filter = 'all', query = '') {
         <div class="card-desc">${tour.desc}</div>
         <div class="card-footer">
           <div>
-            <div class="card-price">${tour.price.split('₸')[0]}₸</div>
+            <div class="card-price">${tour.price.split('₸')}₸</div>
             <div class="card-price-label">адамға</div>
           </div>
           <button class="card-cta" onclick="event.stopPropagation();openModal(${tour.id})">Толығырақ →</button>
@@ -962,15 +900,15 @@ function closeModal() {
 // close on drag
 let touchStartY = 0;
 document.getElementById('modal-sheet').addEventListener('touchstart', e => {
-  touchStartY = e.touches[0].clientY;
+  touchStartY = e.touches.clientY;
 }, { passive: true });
 document.getElementById('modal-sheet').addEventListener('touchend', e => {
-  const dy = e.changedTouches[0].clientY - touchStartY;
+  const dy = e.changedTouches.clientY - touchStartY;
   if (dy > 80) closeModal();
 }, { passive: true });
 
-// ─── BOOKING ───
-const BOT_USERNAME = 'TravelGen'; // ← осы жерге өз бот логиніңізді қойыңыз
+// ─── ВАЖНО: ЛОГИН ВАШЕГО БОТА (Coze) ───
+const BOT_USERNAME = 'travelgen_the_bot'; 
 
 function bookTour() {
   if (!currentTour) return;
@@ -1036,6 +974,5 @@ function switchTab(tabId, btn) {
 renderCards();
 renderBookings();
 </script>
-
-
-</body></html>
+</body>
+</html>
