@@ -4,10 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Sapar — Сапар жоспарлаушы</title>
+  
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --primary: #8E2DE2;
@@ -52,7 +54,6 @@
       overflow: hidden;
     }
 
-    /* ─── SCROLL CONTAINERS ─── */
    .tab-content {
       display: none;
       flex: 1;
@@ -64,7 +65,6 @@
     }
    .tab-content.active { display: block; }
 
-    /* ─── HEADER ─── */
    .page-header {
       padding: 20px 20px 0;
       position: relative;
@@ -82,7 +82,6 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* ─── SEARCH BAR ─── */
    .search-wrap { padding: 16px 20px 0; }
    .search-inner {
       position: relative;
@@ -109,7 +108,6 @@
     }
    .search-input::placeholder { color: var(--text-light); }
 
-    /* ─── SECTION TITLES ─── */
    .section-title {
       font-size: 18px; font-weight: 800; color: var(--text);
       padding: 20px 20px 12px;
@@ -122,7 +120,6 @@
       text-transform: uppercase;
     }
 
-    /* ─── TRENDING CHIPS ─── */
    .chips-row {
       display: flex; gap: 8px;
       padding: 0 20px 4px; overflow-x: auto;
@@ -144,7 +141,6 @@
       border-color: var(--primary);
     }
 
-    /* ─── TOUR CARDS ─── */
    .cards-grid { padding: 4px 20px; display: flex; flex-direction: column; gap: 16px; }
 
    .tour-card {
@@ -206,7 +202,6 @@
     }
    .card-cta:active { transform: scale(0.94); box-shadow: none; }
 
-    /* ─── MODAL ─── */
    .modal-overlay {
       position: fixed; inset: 0; z-index: 100;
       background: rgba(30,10,60,0.5);
@@ -301,7 +296,6 @@
     }
    .book-btn:active { transform: scale(0.96); box-shadow: 0 4px 12px rgba(142,45,226,0.3); }
 
-    /* ─── BOTTOM NAV ─── */
    .bottom-nav {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
       height: calc(var(--nav-h) + var(--safe-bottom));
@@ -332,7 +326,6 @@
    .nav-label { font-size: 10px; font-weight: 600; color: var(--text-muted); transition: color 300ms; letter-spacing: 0.2px; }
    .nav-btn.active.nav-label { color: var(--primary); }
 
-    /* ─── BOOKINGS TAB ─── */
    .empty-state {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 60px 32px; text-align: center; min-height: 50vh;
@@ -360,7 +353,6 @@
       background: rgba(34,197,94,0.12); color: #16A34A;
     }
 
-    /* ─── AI TAB ─── */
    .ai-hero {
       margin: 20px;
       background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 50%, #A855F7 100%);
@@ -410,7 +402,6 @@
     }
    .ai-cta:active { transform: scale(0.97); box-shadow: none; }
 
-    /* ─── PROFILE TAB ─── */
    .profile-hero {
       margin: 20px; padding: 28px 20px;
       background: linear-gradient(135deg, rgba(142,45,226,0.08), rgba(168,85,247,0.05));
@@ -451,17 +442,14 @@
    .profile-menu-label { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; }
    .profile-menu-arrow { color: var(--text-muted); font-size: 14px; }
 
-    /* ─── MISC ─── */
    .hidden-card { display: none!important; }
    .no-results {
       text-align: center; padding: 40px 20px;
       font-size: 15px; color: var(--text-muted); font-weight: 500;
     }
 
-    /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 0; }
 
-    /* ─── ANIMATIONS ─── */
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -504,8 +492,7 @@
       <div class="chip" data-filter="қазақстан">Қазақстан</div>
     </div>
 
-    <div class="cards-grid" id="cards-grid">
-      </div>
+    <div class="cards-grid" id="cards-grid"></div>
     <div class="no-results" id="no-results" style="display:none;">Нәтиже табылмады 😔</div>
   </div>
 
@@ -704,7 +691,6 @@
 </div>
 
 <script>
-// ─── TELEGRAM INIT ───
 const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.expand();
@@ -718,7 +704,6 @@ function hapticNotify(type = 'success') {
   tg?.HapticFeedback?.notificationOccurred(type);
 }
 
-// ─── USER DATA ───
 const user = tg?.initDataUnsafe?.user;
 const firstName = user?.first_name |
 
@@ -726,7 +711,7 @@ const firstName = user?.first_name |
 const lastName  = user?.last_name |
 
 | '';
-const username  = user?.username  ? '@' + user.username : 'Telegram';
+const username  = user?.username? '@' + user.username : 'Telegram';
 const initials  = firstName.charAt(0).toUpperCase();
 
 document.getElementById('explore-name').textContent = firstName;
@@ -735,7 +720,7 @@ document.getElementById('profile-greeting').textContent = 'Сәлем, ' + first
 document.getElementById('profile-username').textContent = username;
 document.getElementById('profile-avatar').textContent = initials;
 
-// ─── TOUR DATA ───
+// Картинки заменены на интернет-ссылки, чтобы работали на GitHub
 const TOURS =,
     reviews: [
       { name: 'Айгерім Б.', avatar: 'А', stars: '⭐⭐⭐⭐⭐', rating: '4.7/5', text: 'Қонақ үй үлкен, әдемі. Барлық жерде өте таза, бәрі ұсақ-түйекке дейін ойластырылған. Территорияда көп жасыл желек, бәрі күтілген.' },
@@ -748,7 +733,6 @@ const TOURS =,
     filter: 'дубай',
     title: 'БАӘ (Дубай)',
     desc: '5 күн · Қалалық тур және сафари',
-    price: '456 469 ₸-ден бастап',
     priceRaw: '456 469 ₸',
     hotel: 'Jumeirah Creekside Hotel',
     hotelStars: '⭐⭐⭐⭐⭐',
@@ -768,7 +752,6 @@ const TOURS =,
     filter: 'қазақстан',
     title: 'Қазақстан (Көлсай)',
     desc: '2 күн · Табиғат аясында демалыс',
-    price: '60 000 ₸',
     priceRaw: '60 000 ₸',
     hotel: 'CozyRest Guest House',
     hotelStars: '⭐⭐⭐⭐⭐',
@@ -788,7 +771,6 @@ let currentTour = null;
 let activeChip = 'all';
 let bookings =;
 
-// ─── RENDER CARDS ───
 function renderCards(filter = 'all', query = '') {
   const grid = document.getElementById('cards-grid');
   const noRes = document.getElementById('no-results');
@@ -825,7 +807,7 @@ function renderCards(filter = 'all', query = '') {
         <div class="card-desc">${tour.desc}</div>
         <div class="card-footer">
           <div>
-            <div class="card-price">${tour.price.split('₸')}₸</div>
+            <div class="card-price">${tour.priceRaw}</div>
             <div class="card-price-label">адамға</div>
           </div>
           <button class="card-cta" onclick="event.stopPropagation();openModal(${tour.id})">Толығырақ →</button>
@@ -836,7 +818,6 @@ function renderCards(filter = 'all', query = '') {
   });
 }
 
-// ─── CHIPS ───
 document.getElementById('chips-row').addEventListener('click', e => {
   const chip = e.target.closest('.chip');
   if (!chip) return;
@@ -847,12 +828,10 @@ document.getElementById('chips-row').addEventListener('click', e => {
   renderCards(activeChip, document.getElementById('search-input').value);
 });
 
-// ─── SEARCH ───
 document.getElementById('search-input').addEventListener('input', e => {
   renderCards(activeChip, e.target.value);
 });
 
-// ─── MODAL ───
 function openModal(id) {
   haptic('medium');
   currentTour = TOURS.find(t => t.id === id);
@@ -897,17 +876,21 @@ function closeModal() {
   currentTour = null;
 }
 
-// close on drag
 let touchStartY = 0;
 document.getElementById('modal-sheet').addEventListener('touchstart', e => {
-  touchStartY = e.touches.clientY;
+  touchStartY = e.touches?.clientY |
+
+| e.touches.clientY;
 }, { passive: true });
 document.getElementById('modal-sheet').addEventListener('touchend', e => {
-  const dy = e.changedTouches.clientY - touchStartY;
+  const touchY = e.changedTouches?.clientY |
+
+| e.changedTouches.clientY;
+  const dy = touchY - touchStartY;
   if (dy > 80) closeModal();
 }, { passive: true });
 
-// ─── ВАЖНО: ЛОГИН ВАШЕГО БОТА (Coze) ───
+// ─── ЛОГИН ВАШЕГО БОТА В COZE ───
 const BOT_USERNAME = 'travelgen_the_bot'; 
 
 function bookTour() {
@@ -961,7 +944,6 @@ function renderBookings() {
   });
 }
 
-// ─── TAB ROUTING ───
 function switchTab(tabId, btn) {
   haptic();
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -970,7 +952,6 @@ function switchTab(tabId, btn) {
   btn.classList.add('active');
 }
 
-// ─── INIT ───
 renderCards();
 renderBookings();
 </script>
