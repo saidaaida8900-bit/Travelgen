@@ -2,16 +2,18 @@
 <html lang="kk" style="--tg-viewport-height: 100vh; --tg-viewport-stable-height: 100vh;">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
   <title>Sapar — Сапар жоспарлаушы</title>
   
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
     :root {
+      /* Brand Palette */
       --primary: #8E2DE2;
       --primary-light: #A855F7;
       --primary-dark: #6B21A8;
@@ -21,9 +23,13 @@
       --text-muted: #7C6FAA;
       --text-light: #A99EC7;
       --surface: #FFFFFF;
+      
+      /* Glassmorphism Variables */
       --card-bg: rgba(255,255,255,0.85);
       --glass-bg: rgba(255,255,255,0.75);
       --glass-border: rgba(255,255,255,0.4);
+      
+      /* Spatial Properties */
       --shadow-sm: 0 2px 12px rgba(142,45,226,0.08);
       --shadow-md: 0 8px 32px rgba(142,45,226,0.14);
       --shadow-lg: 0 20px 60px rgba(142,45,226,0.22);
@@ -32,6 +38,8 @@
       --radius-lg: 24px;
       --radius-xl: 32px;
       --nav-h: 80px;
+      
+      /* Environment Integrations */
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
@@ -44,6 +52,7 @@
       color: var(--text);
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
+      overscroll-behavior: none;
     }
 
     #app {
@@ -54,7 +63,7 @@
       overflow: hidden;
     }
 
-    /* ─── SCROLL CONTAINERS ─── */
+    /* Scroll Containers & Tab Logic */
    .tab-content {
       display: none;
       flex: 1;
@@ -66,12 +75,8 @@
     }
    .tab-content.active { display: block; }
 
-    /* ─── HEADER ─── */
-   .page-header {
-      padding: 20px 20px 0;
-      position: relative;
-      z-index: 1;
-    }
+    /* Application Header */
+   .page-header { padding: 20px 20px 0; position: relative; z-index: 1; }
    .greeting-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
    .greeting-sub { font-size: 12px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.4px; text-transform: uppercase; }
    .greeting-name { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1.1; }
@@ -84,7 +89,7 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* ─── SEARCH BAR ─── */
+    /* Search Interface */
    .search-wrap { padding: 16px 20px 0; }
    .search-inner {
       position: relative;
@@ -111,7 +116,7 @@
     }
    .search-input::placeholder { color: var(--text-light); }
 
-    /* ─── SECTION TITLES ─── */
+    /* Sectional Layouts */
    .section-title {
       font-size: 18px; font-weight: 800; color: var(--text);
       padding: 20px 20px 12px;
@@ -124,7 +129,7 @@
       text-transform: uppercase;
     }
 
-    /* ─── TRENDING CHIPS ─── */
+    /* Filtering Systems */
    .chips-row {
       display: flex; gap: 8px;
       padding: 0 20px 4px; overflow-x: auto;
@@ -146,7 +151,7 @@
       border-color: var(--primary);
     }
 
-    /* ─── TOUR CARDS ─── */
+    /* Rendering Grid */
    .cards-grid { padding: 4px 20px; display: flex; flex-direction: column; gap: 16px; }
 
    .tour-card {
@@ -162,9 +167,7 @@
     }
    .tour-card:active { transform: scale(0.97); box-shadow: var(--shadow-sm); }
 
-   .card-img-wrap {
-      position: relative; height: 200px; overflow: hidden;
-    }
+   .card-img-wrap { position: relative; height: 200px; overflow: hidden; }
    .card-img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 400ms ease;
@@ -208,7 +211,7 @@
     }
    .card-cta:active { transform: scale(0.94); box-shadow: none; }
 
-    /* ─── MODAL ─── */
+    /* Modal Architecture */
    .modal-overlay {
       position: fixed; inset: 0; z-index: 100;
       background: rgba(30,10,60,0.5);
@@ -303,7 +306,7 @@
     }
    .book-btn:active { transform: scale(0.96); box-shadow: 0 4px 12px rgba(142,45,226,0.3); }
 
-    /* ─── BOTTOM NAV ─── */
+    /* Navigation Bar */
    .bottom-nav {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
       height: calc(var(--nav-h) + var(--safe-bottom));
@@ -334,7 +337,7 @@
    .nav-label { font-size: 10px; font-weight: 600; color: var(--text-muted); transition: color 300ms; letter-spacing: 0.2px; }
    .nav-btn.active.nav-label { color: var(--primary); }
 
-    /* ─── BOOKINGS TAB ─── */
+    /* Status Components */
    .empty-state {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 60px 32px; text-align: center; min-height: 50vh;
@@ -362,7 +365,7 @@
       background: rgba(34,197,94,0.12); color: #16A34A;
     }
 
-    /* ─── AI TAB ─── */
+    /* Supplementary UI Sections */
    .ai-hero {
       margin: 20px;
       background: linear-gradient(135deg, var(--primary) 0%, #7C3AED 50%, #A855F7 100%);
@@ -412,7 +415,6 @@
     }
    .ai-cta:active { transform: scale(0.97); box-shadow: none; }
 
-    /* ─── PROFILE TAB ─── */
    .profile-hero {
       margin: 20px; padding: 28px 20px;
       background: linear-gradient(135deg, rgba(142,45,226,0.08), rgba(168,85,247,0.05));
@@ -453,17 +455,13 @@
    .profile-menu-label { font-size: 15px; font-weight: 600; color: var(--text); flex: 1; }
    .profile-menu-arrow { color: var(--text-muted); font-size: 14px; }
 
-    /* ─── MISC ─── */
    .hidden-card { display: none!important; }
    .no-results {
       text-align: center; padding: 40px 20px;
       font-size: 15px; color: var(--text-muted); font-weight: 500;
     }
-
-    /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 0; }
 
-    /* ─── ANIMATIONS ─── */
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -507,7 +505,6 @@
     </div>
 
     <div class="cards-grid" id="cards-grid"></div>
-    
     <div class="no-results" id="no-results" style="display:none;">Нәтиже табылмады 😔</div>
   </div>
 
@@ -706,7 +703,7 @@
 </div>
 
 <script>
-// ─── TELEGRAM INIT ───
+// TELEGRAM SDK INITIALIZATION
 const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.expand();
@@ -720,7 +717,7 @@ function hapticNotify(type = 'success') {
   tg?.HapticFeedback?.notificationOccurred(type);
 }
 
-// ─── USER DATA ───
+// USER DATA INJECTION
 const user = tg?.initDataUnsafe?.user;
 const firstName = user?.first_name |
 
@@ -737,8 +734,7 @@ document.getElementById('profile-greeting').textContent = 'Сәлем, ' + first
 document.getElementById('profile-username').textContent = username;
 document.getElementById('profile-avatar').textContent = initials;
 
-// ─── TOUR DATA ───
-// Изображения заменены на интернет-ссылки, чтобы они не были "сломанными" на GitHub
+// ARCHITECTURAL FIX: NORMALIZED CDN ASSET PATHS
 const TOURS =,
     reviews: [
       { name: 'Айгерім Б.', avatar: 'А', stars: '⭐⭐⭐⭐⭐', rating: '4.7/5', text: 'Қонақ үй үлкен, әдемі. Барлық жерде өте таза, бәрі ұсақ-түйекке дейін ойластырылған. Территорияда көп жасыл желек, бәрі күтілген. Қонақ үйдің артындағы саябақ керемет. Кешке Қонақлыға көрініс ашылады.' },
@@ -746,19 +742,10 @@ const TOURS =,
     ]
   },
   {
-    id: 2,
-    country: 'Дубай',
-    filter: 'дубай',
-    title: 'БАӘ (Дубай)',
-    desc: '5 күн · Қалалық тур және сафари',
-    price: '456 469 ₸-ден бастап',
-    priceRaw: '456 469 ₸',
-    hotel: 'Jumeirah Creekside Hotel',
-    hotelStars: '⭐⭐⭐⭐⭐',
-    rating: '4.8',
-    emoji: '🇦🇪',
+    id: 2, country: 'Дубай', filter: 'дубай', title: 'БАӘ (Дубай)',
+    desc: '5 күн · Қалалық тур және сафари', price: '456 469 ₸-ден бастап', priceRaw: '456 469 ₸',
+    hotel: 'Jumeirah Creekside Hotel', hotelStars: '⭐⭐⭐⭐⭐', rating: '4.8', emoji: '🇦🇪',
     img: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=85',
-    imgFallback: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=85',
     chips: ['✈️ Ұшу кіреді', '🌆 Сити-тур', '🐪 Сафари', '5 күн'],
     reviews: [
       { name: 'Дина М.', avatar: 'Д', stars: '⭐⭐⭐⭐⭐', rating: '4.8/5', text: 'Бөлме өте жақсы және таза, тамаша көрінісі бар еді. Қонақүйдің атмосферасы мен қызметкерлері жалпы алғанда керемет болды, ал тамақ өте дәмді әрі ерекше болды. Қызметі үшін Ясемин ханымға ерекше рахмет.' },
@@ -766,19 +753,10 @@ const TOURS =,
     ]
   },
   {
-    id: 3,
-    country: 'Қазақстан',
-    filter: 'қазақстан',
-    title: 'Қазақстан (Көлсай)',
-    desc: '2 күн · Табиғат аясында демалыс',
-    price: '60 000 ₸',
-    priceRaw: '60 000 ₸',
-    hotel: 'CozyRest Guest House',
-    hotelStars: '⭐⭐⭐⭐⭐',
-    rating: '5.0',
-    emoji: '🇰🇿',
+    id: 3, country: 'Қазақстан', filter: 'қазақстан', title: 'Қазақстан (Көлсай)',
+    desc: '2 күн · Табиғат аясында демалыс', price: '60 000 ₸', priceRaw: '60 000 ₸',
+    hotel: 'CozyRest Guest House', hotelStars: '⭐⭐⭐⭐⭐', rating: '5.0', emoji: '🇰🇿',
     img: 'https://images.unsplash.com/photo-1625244695498-b7f4226b5cbb?w=900&q=85',
-    imgFallback: 'https://images.unsplash.com/photo-1625244695498-b7f4226b5cbb?w=900&q=85',
     chips: ['🏔️ Таулы', '🌲 Табиғат', '2 күн', '🐎 Ат сайысы'],
     reviews: [
       { name: 'Зарина К.', avatar: 'З', stars: '⭐⭐⭐⭐⭐', rating: '5.0/5', text: 'Өте жайлы демалыс болды, таңғы және кешкі астары өте тамаша еді. Олар бізге сапарларды ұйымдастыруға көмектесті және соңғы күні бізді алуға келген таксидің дөңгелегі жарылып кеткенде, бізді ұзағырақ қалуға рұқсат берді.' },
@@ -791,7 +769,6 @@ let currentTour = null;
 let activeChip = 'all';
 let bookings =;
 
-// ─── RENDER CARDS ─── (Именно тот дизайн, который был у Клода)
 function renderCards(filter = 'all', query = '') {
   const grid = document.getElementById('cards-grid');
   const noRes = document.getElementById('no-results');
@@ -818,7 +795,7 @@ function renderCards(filter = 'all', query = '') {
     card.dataset.id = tour.id;
     card.innerHTML = `
       <div class="card-img-wrap">
-        <img class="card-img" src="${tour.img}" alt="${tour.title}" loading="lazy" onerror="this.onerror=null;this.src='${tour.imgFallback}'" />
+        <img class="card-img" src="${tour.img}" alt="${tour.title}" loading="lazy" />
         <div class="card-badge">${tour.emoji} ${tour.country}</div>
         <div class="card-rating-badge">⭐ ${tour.rating}</div>
       </div>
@@ -839,7 +816,6 @@ function renderCards(filter = 'all', query = '') {
   });
 }
 
-// ─── CHIPS ───
 document.getElementById('chips-row').addEventListener('click', e => {
   const chip = e.target.closest('.chip');
   if (!chip) return;
@@ -850,19 +826,16 @@ document.getElementById('chips-row').addEventListener('click', e => {
   renderCards(activeChip, document.getElementById('search-input').value);
 });
 
-// ─── SEARCH ───
 document.getElementById('search-input').addEventListener('input', e => {
   renderCards(activeChip, e.target.value);
 });
 
-// ─── MODAL ───
 function openModal(id) {
   haptic('medium');
   currentTour = TOURS.find(t => t.id === id);
   if (!currentTour) return;
 
   document.getElementById('modal-img').src = currentTour.img;
-  document.getElementById('modal-img').onerror = function(){ this.onerror=null; this.src=currentTour.imgFallback; };
   document.getElementById('modal-img').alt = currentTour.title;
   document.getElementById('modal-title').textContent = currentTour.title;
   document.getElementById('modal-subtitle').textContent = currentTour.desc;
@@ -900,7 +873,6 @@ function closeModal() {
   currentTour = null;
 }
 
-// close on drag
 let touchStartY = 0;
 document.getElementById('modal-sheet').addEventListener('touchstart', e => {
   touchStartY = e.touches.clientY;
@@ -910,9 +882,8 @@ document.getElementById('modal-sheet').addEventListener('touchend', e => {
   if (dy > 80) closeModal();
 }, { passive: true });
 
-// ─── BOOKING ───
-// ВАЖНО: Тут вписан ваш бот из Coze
-const BOT_USERNAME = 'travelgen_the_bot'; 
+// ARCHITECTURAL FIX: EXACT BOT USERNAME FOR ROUTING
+const BOT_USERNAME = 'travelgen_the_bot';
 
 function bookTour() {
   if (!currentTour) return;
@@ -925,7 +896,6 @@ function bookTour() {
         hapticNotify('success');
         addBooking(tour);
         const msg = 'Мен мына турды брондағым келеді: ' + tour.title + ' - ' + tour.priceRaw;
-        // Исправленная ссылка для платформы Coze:
         tg.openTelegramLink('https://t.me/' + BOT_USERNAME + '?text=' + encodeURIComponent(msg));
         closeModal();
       }
@@ -966,7 +936,6 @@ function renderBookings() {
   });
 }
 
-// ─── TAB ROUTING ───
 function switchTab(tabId, btn) {
   haptic();
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -975,10 +944,9 @@ function switchTab(tabId, btn) {
   btn.classList.add('active');
 }
 
-// ─── INIT ───
+// System Initialization
 renderCards();
 renderBookings();
 </script>
-
 </body>
 </html>
